@@ -37,32 +37,34 @@ git push -u origin main
 1. Gehe zu deinem Repository auf GitHub
 2. Klicke auf **Settings** (Tab)
 3. Scrolle runter zu **Pages** (linke Sidebar)
-4. Unter **Source** wähle **Deploy from a branch**
-5. Branch: `gh-pages`
-6. Folder: `/ (root)`
-7. Klicke **Save**
+4. Unter **Source** wähle **GitHub Actions**
+5. Klicke **Save**
 
-### 4. Website deployen
+### 4. Automatisches Deployment
 
-```bash
-# Website builden und deployen
-npm run deploy
-```
+Das GitHub Actions Workflow wird automatisch ausgeführt:
+- Bei jedem Push zum `main` Branch
+- Buildet die Website automatisch
+- Deployt zu GitHub Pages
 
 ### 5. Website ist live! 🎉
 
 Deine Website ist jetzt unter `https://YOUR_USERNAME.github.io/groofish/` verfügbar.
 
+**Hinweis**: Das erste Deployment kann 5-10 Minuten dauern.
+
 ## Troubleshooting
 
 ### Problem: 404 Error nach Deployment
 - Warte 5-10 Minuten - GitHub Pages braucht Zeit zum Deployen
-- Überprüfe, ob der `gh-pages` Branch erstellt wurde
+- Überprüfe die GitHub Actions Logs unter **Actions** Tab
 - Stelle sicher, dass das Repository public ist
+- Überprüfe, ob GitHub Pages auf **GitHub Actions** gesetzt ist
 
 ### Problem: Assets werden nicht geladen
 - Überprüfe, ob `vite.config.js` die korrekte `base` URL hat: `base: '/groofish/'`
 - Stelle sicher, dass alle Pfade relativ sind
+- Überprüfe die GitHub Actions Logs für Build-Fehler
 
 ### Problem: Build Fehler
 ```bash
